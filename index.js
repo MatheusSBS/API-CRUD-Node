@@ -34,5 +34,11 @@ server.put('/countries/:index', (req, res) =>{
     countries[index] = name
     return res.json(countries)
 })
+// Delete a countrie
+server.delete('/countries/:index', (req, res) => {
+    const { index } = req.params
+    countries.splice(index, 1)
+    return res.json({message: 'This countrie are deleted'})
+})
 
 server.listen(3001)
